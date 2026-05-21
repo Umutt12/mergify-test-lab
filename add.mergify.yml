@@ -1,17 +1,12 @@
+queue_rules:
+  - name: default
+    conditions:
+      - base=main
+
 pull_request_rules:
-  - name: Otomatik Merge Testi
+  - name: PR'ı sıraya al ve merge et
     conditions:
       - base=main
     actions:
-      merge:
-        method: merge
-pull_request_rules:
-  - name: Otomatik Merge Testi
-    conditions:
-      - base=main
-    actions:
-      merge:
-        method: merge
-      label:
-        add:
-          - "mergify-test"
+      queue:
+        name: default
