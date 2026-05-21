@@ -1,12 +1,8 @@
-queue_rules:
-  - name: default
-    conditions:
-      - base=main
-
 pull_request_rules:
-  - name: PR'ı sıraya al ve merge et
+  - name: Otomatik Merge (Sıraya alma yok, direkt birleştir)
     conditions:
       - base=main
+      - "#approved-reviews-by>=0"
     actions:
-      queue:
-        name: default
+      merge:
+        method: merge
